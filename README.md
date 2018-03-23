@@ -20,8 +20,13 @@ For this project I used Google Cloud VM instances instead of Amazon as I already
   `grader ALL=(ALL:ALL) ALL`
  * Create a .ssh folder  
  `sudo mkdir /home/grader/.shh` 
+ * create an ssh key in the local machine  
+ `ssh-keygen`  
+ I named the file as udacity and didnt give any password. 
  * create authorized_key  
- `sudo nano /home/grader/.shh/authorized_keys`
- 
- 
-* upload ssh key using online ssh tool that Google Cloud has
+ `sudo nano /home/grader/.shh/authorized_keys` 
+ and paste udacity.pub file content
+ * change the ownership of the file  
+ ```sudo chmod 700 /home/grader/.ssh  
+ sudo chmod 644 /home/grader/.ssh/authorized_keys  
+ sudo chown -R grader:grader /home/grader/.ssh```
