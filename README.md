@@ -28,6 +28,66 @@ sudo apt-get upgrade
 `sudo service apache2 start`  
 By now it should show default index.html page that is installed with apache server.
 
+* Create catalog.wsgi  
+`sudo nano catalog.wsgi`  
+paste the following into it and save;  
+```
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0,"/var/www/catalog/")
+  
+from catalog import app as application
+application.secret_key = 'super_secret_key'
+```
+
+### Make necessary installation flask etc...
+* Install pip for python  
+`sudo apt-get install python-pip` 
+* Install virtualenv:  
+`sudo pip install virtualenv` 
+* create a virtual environment  
+`sudo virtualenv venv`
+* set permissions  
+`sudo chmod -R 777 venv` 
+* start venv  
+`source venv/bin/activate` 
+* install flask  
+`pip install Flask` 
+* stop venv  
+ `deactivate`
+
+### Virtual host configuration file
+
+* Create configuration file  
+`sudo nano /etc/apache2/sites-available/catalog.conf`
+* Paste the following  
+  ```
+   <VirtualHost *:80>
+      ServerName 35.187.230.51
+      ServerAdmin ozgunbalaban@3.187.230.51
+      ServerAlias www.architecturalcomputation.com
+      WSGIScriptAlias / /var/www/catalog/catalog.wsgi
+      <Directory /var/www/catalog/catalog/>
+          Order allow,deny
+          Allow from all
+      </Directory>
+      Alias /static /var/www/catalog/catalog/static
+      <Directory /var/www/catalog/catalog/static/>
+          Order allow,deny
+          Allow from all
+      </Directory>
+      ErrorLog ${APACHE_LOG_DIR}/error.log
+      LogLevel warn
+      CustomLog ${APACHE_LOG_DIR}/access.log combined
+  </VirtualHost>
+  ```
+  I need to mention, I had a domain name architecturalcomputation.com that I used for this project. As my domain name was through godaddy.com I need to do some configuration. 
+  I used the steps here; https://www.onepagezen.com/transfer-domain-google-cloud-platform/
+  after the configuration I could access from the domain name architecturalcomputation.com
+ * enable virtual host 
+ `sudo a2ensite catalog`
+ 
 ### Clone previous project from Github
 
 * Clone catalog project  
