@@ -54,6 +54,13 @@ application.secret_key = 'super_secret_key'
 `source venv/bin/activate` 
 * install flask  
 `pip install Flask` 
+* install needed plugins 
+`pip install httplib2`  
+`pip install requests` 
+`sudo pip install oauth2client`  
+`pip install sqlalchemy`  
+`sudo apt-get install python-psycopg2`  
+
 * stop venv  
  `deactivate`
 
@@ -87,6 +94,8 @@ application.secret_key = 'super_secret_key'
   after the configuration I could access from the domain name architecturalcomputation.com
  * enable virtual host 
  `sudo a2ensite catalog`
+ 
+### Install 
  
 ### Clone previous project from Github
 
