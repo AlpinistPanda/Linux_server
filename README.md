@@ -83,7 +83,7 @@ application.secret_key = 'super_secret_key'
   </VirtualHost>
   ```
   I need to mention, I had a domain name architecturalcomputation.com that I used for this project. As my domain name was through godaddy.com I need to do some configuration. 
-  I used the steps here; https://www.onepagezen.com/transfer-domain-google-cloud-platform/
+  I used the steps here;  https://www.onepagezen.com/transfer-domain-google-cloud-platform/
   after the configuration I could access from the domain name architecturalcomputation.com
  * enable virtual host 
  `sudo a2ensite catalog`
@@ -121,9 +121,9 @@ Before this it wasnt possible to ssh to server as Google Cloud needs key based a
 `ssh -i udacity grader@architecturalcomputation.com`
 * Change ssh port to 2200  
 `sudo nano /etc/ssh/sshd_config`  
-* Restart ssh service
+* Restart ssh service 
 `sudo service ssh restart`
-* Configure firewall
+* Configure firewall  
  Google cloud has its own configuration for firewall. It should be configured from that place. https://stackoverflow.com/questions/21065922/how-to-open-a-specific-port-such-as-9090-in-google-compute-engine
  I changed the default rule of port 22 for ssh to 2200 for ssh. 
  
