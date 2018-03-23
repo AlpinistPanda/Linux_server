@@ -54,9 +54,9 @@ application.secret_key = 'super_secret_key'
 `source venv/bin/activate` 
 * install flask  
 `pip install Flask` 
-* install needed plugins 
+* install needed plugins  
 `pip install httplib2`  
-`pip install requests` 
+`pip install requests`  
 `sudo pip install oauth2client`  
 `pip install sqlalchemy`  
 `sudo apt-get install python-psycopg2`  
