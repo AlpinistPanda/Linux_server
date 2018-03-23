@@ -146,4 +146,6 @@ Before this it wasnt possible to ssh to server as Google Cloud needs key based a
  Google cloud has its own configuration for firewall. It should be configured from that place. https://stackoverflow.com/questions/21065922/how-to-open-a-specific-port-such-as-9090-in-google-compute-engine
  I changed the default rule of port 22 for ssh to 2200 for ssh. 
  
+ ### Change Google API values
  
+ Since I used architecturalcomputation.com, I added this as authorized URL.
