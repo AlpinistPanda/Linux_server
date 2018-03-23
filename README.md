@@ -60,9 +60,17 @@ application.secret_key = 'super_secret_key'
 `sudo pip install oauth2client`  
 `pip install sqlalchemy`  
 `sudo apt-get install python-psycopg2`  
-
 * stop venv  
  `deactivate`
+
+### Install PostgreSQL
+* Install PostgreSQL:  
+`sudo apt-get install postgresql postgresql-contrib`   
+* Configure database   
+change database line from database_setup.py  
+`engine = create_engine('postgresql://catalog:1234@localhost/catalog')`  
+* Run database_setup.py  
+`python database_setup.py`
 
 ### Virtual host configuration file
 
@@ -95,14 +103,16 @@ application.secret_key = 'super_secret_key'
  * enable virtual host 
  `sudo a2ensite catalog`
  
-### Install 
+
  
 ### Clone previous project from Github
 
 * Clone catalog project  
 `git clone https://github.com/AlpinistPanda/catalog-app.git` 
 * copy the contents to a folder  
-`cp -r /catalog-app /var/www/catalog/catalog/`  
+`cp -r /catalog-app /var/www/catalog/catalog/`   
+* change application.py to __init__.py  
+`cp application.py __init__.py`  
 
 ### Create a grader user
  * Create a grader user   
